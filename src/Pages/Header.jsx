@@ -1,36 +1,46 @@
-// import { a, Routes, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { useState, useEffect, useCallback } from 'react';
 
 export default function Header(){
-    return(
-        <header className='header'>
-            <nav>
-                <a href ="">
-                    <img src="src/assets/logo.svg" alt="Shortly logo" />
-                </a>
+    const [mobile, setMobile] = useState(false);
 
-                <div className="header__tabs">
+    const triggerMobileView = () => {
+        setMobile(!mobile);
+    }
+
+    const handleNavChanges = useCallback(() => {
+        if(mobile) document.body.classList.add('disabled');
+        else document.body.classList.remove('disabled');
+    }, [mobile])
+
+    useEffect(() =>{
+        handleNavChanges();
+    }, [handleNavChanges])
+
+    return(
+        <header className='header | container'>
+            <nav className='header__nav'>
+                <Link to ="/">
+                    <img src="src/assets/logo.svg" alt="Shortly logo" draggable="false"/>
+                </Link>
+
+                <div className="header__nav--tabs">
                     <ul role='list'>
-                        <li><a href="">About Us</a></li>
-                        <li><a href="">Features</a></li>
-                        <li><a href="">Pricing</a></li>        
+                        <li><Link to="/about">About Us</Link></li>
+                        <li><Link to="/features">Features</Link></li>
+                        <li><Link to="/pricing">Pricing</Link></li>        
                     </ul>
                 </div>
 
-                <div className="header__dialogs">
+                <div className="header__nav--tabs | dialogs">
                     <ul role='list'>
-                        <li><a href="">Login</a></li>
-                        <li><a href="">Sign Up</a></li>
+                        <li><Link to="">Login</Link></li>
+                        <li><Link to="" className='signup'>Sign Up</Link></li>
                     </ul>                              
                 </div>
-            </nav>
 
-            {/* <Routes>
-                <Route path='' element={}/>
-                <Route path='' element={}/>
-                <Route path='' element={}/>
-                <Route path='' element={}/>
-                <Route path='' element={}/>
-            </Routes> */}
+                <button type="button" className='hamburger--icon'><img src="src/assets/icon-hamburger.svg" alt="hamburger icon" /></button>
+            </nav>
         </header>
     )
 }
