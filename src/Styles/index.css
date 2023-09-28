@@ -65,6 +65,7 @@ picture, svg {
   --clr-primary-purple: hsl(257, 27%, 26%);
   --clr-secondary-red: hsl(0, 87%, 67%);
   --clr-neutral-gray: hsl(0, 0%, 75%);
+  --clr-neutral-off-gray: hsl(225, 33%, 95%);
   --clr-netural-grayish-purple: hsl(257, 7%, 63%);
   --clr-neutral-dark-blue: hsl(255, 11%, 22%);
   --clr-netural-dark-purple: hsl(260, 8%, 14%);
@@ -89,7 +90,7 @@ body {
   margin-inline: auto;
 }
 
-button[type=button] {
+button[type=button], button[type=submit] {
   background-color: var(--clr-primary-cyan);
   padding: 0.5rem 1.5rem;
   border: 0;
@@ -122,6 +123,10 @@ button[type=button] {
   font-weight: var(--font-weight-500);
   white-space: nowrap;
 }
+.header__nav--tabs ul li a:hover, .header__nav--tabs ul li a:focus {
+  color: var(--clr-netural-dark-purple);
+  font-weight: var(--font-weight-700);
+}
 .header__nav .dialogs {
   margin-left: auto;
 }
@@ -134,6 +139,7 @@ button[type=button] {
 }
 .header .signup:hover, .header .signup:focus {
   opacity: 0.6;
+  color: #fff;
 }
 .header button {
   display: inline;
@@ -175,6 +181,53 @@ button[type=button] {
   margin-top: 2rem;
 }
 
+.middle {
+  background-color: var(--clr-neutral-off-gray);
+}
+.middle__shorten {
+  position: relative;
+  inset: -3.5rem 0 auto 0;
+  margin: auto;
+}
+.middle__shorten--link {
+  background-color: #fff;
+  padding: 0.5rem 1rem;
+  margin-block: 1rem;
+}
+.middle__shorten form {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  background-color: var(--clr-primary-purple);
+  background-image: url("src/assets/bg-shorten-desktop.svg");
+  padding: 2rem;
+}
+.middle__shorten form label {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.middle__shorten form input {
+  position: relative;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 0;
+  width: 100%;
+}
+.middle__shorten form button {
+  margin-left: auto;
+  white-space: nowrap;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+.middle__shorten form button:hover, .middle__shorten form button:focus {
+  background-color: transparent;
+  border: 1px solid var(--clr-primary-cyan);
+}
+
 @media (min-width: 61rem) {
   .header button {
     display: none;
@@ -189,6 +242,21 @@ button[type=button] {
   }
   .hero img {
     order: 2;
+  }
+}
+@media (max-width: 600px) {
+  .middle__shorten {
+    background-image: url("src/assets/bg-shorten-mobile.svg");
+    background-position: top right;
+    background-repeat: no-repeat;
+    inset: -5rem 0 auto 0;
+  }
+  .middle__shorten form {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .middle__shorten form button {
+    width: 100%;
   }
 }
 

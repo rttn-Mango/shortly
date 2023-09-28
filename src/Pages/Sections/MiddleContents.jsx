@@ -21,17 +21,23 @@ export default function MiddleContents(){
 
     return(
         <section className="middle">
-            <div className="middle__shorten">
+
+            <div className="middle__shorten | container">
                 <form>
-                    <div className="form-group">
-                        <label htmlFor="url">Enter a URL</label>
-                        <input type="url" name="url" id="url" required placeholder="Shorten a link here..."/>
-                    </div>
+                    <label htmlFor="url">Enter a URL</label>
+                    <input type="url" name="url" id="url" required placeholder="Shorten a link here..."/>
                     <button type="submit">Shorten It!</button>
                 </form>
+                <div className="middle__shorten--link">
+                    <p>Sample link here....</p>
+                </div>
+                <div className="middle__shorten--link">
+                    <p>Sample link here....</p>
+                </div>
+
             </div>
 
-            <div className="middle__stats">
+            <div className="middle__stats | container">
                 <h2>Advanced Statistics</h2>
                 <p>Track how your links are performing across the web with our advanced statistics dashboard.</p>
 
