@@ -1,6 +1,15 @@
+import { useState, useEffect } from "react";
 import StatCard from "../../Components/StatCard";
+import Form from "../../Components/Form";
 
 export default function MiddleContents(){
+    const [link, setLink] = useState("");
+    const [shortLink, setShortLink] = useState({
+        originalLink: "",
+        shortLink: ''
+    })
+    const [copyText, setCopyText] = useState(false);
+
     const STAT_CARD_DATA = [
         {
             path: "src/assets/icon-brand-recognition.svg",
@@ -19,22 +28,56 @@ export default function MiddleContents(){
         }
     ];
 
+    const setLongLink = (link) => setLink(link);
+
+    const setData = (data) => {
+        setShortLink(() => {
+            let tempLink = {...shortLink}
+            tempLink.originalLink = data.result.original_link;
+            tempLink.shortLink = data.result.full_short_link;
+            return tempLink
+        })
+    }
+
+    const copyTextToClipboard = () => {
+        navigator.clipboard.writeText(shortLink.shortLink)
+        .then(() => {
+            setCopyText(!copyText);
+        })
+        .catch(() => {
+            alert("Copy Failed.");
+        });
+    }
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const response  = await fetch(`https://api.shrtco.de/v2/shorten?url=${link}`);
+            if (response.status !== 201){
+                throw new Error("Request Failed.")
+            }
+            const data = await response.json();
+            setData(data)
+        }
+
+        fetchData();
+    }, [link])
+
     return(
         <section className="middle">
 
             <div className="middle__shorten | container">
-                <form>
-                    <label htmlFor="url">Enter a URL</label>
-                    <input type="url" name="url" id="url" required placeholder="Shorten a link here..."/>
-                    <button type="submit">Shorten It!</button>
-                </form>
-                <div className="middle__shorten--link">
-                    <p>Sample link here....</p>
-                </div>
-                <div className="middle__shorten--link">
-                    <p>Sample link here....</p>
-                </div>
-
+                <Form setLongLink={setLongLink}/>
+                {
+                    shortLink.shortLink !== '' ? 
+                    <div className="middle__shorten--link">
+                        <p>{shortLink.originalLink}</p>
+                        <div className="middle__shorten--link-group">
+                            <p>{shortLink.shortLink}</p>
+                            <button type="button" onClick={copyTextToClipboard} className={copyText ? "copied" : ""} value={shortLink.shortLink}>{copyText ? "Copied!" : "Copy"}</button>
+                        </div>
+                    </div>
+                    : null
+                }
             </div>
 
             <div className="middle__stats | container">
