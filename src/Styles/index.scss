@@ -91,7 +91,7 @@ button[type="button"], button[type="submit"]{
         text-align: center;
         padding-inline: 2rem;
         & h1{
-            font-size: var(--font-size-900);
+            font-size: clamp(1.5rem, 5vw, var(--font-size-900));
             font-weight: var(--font-weight-700);
             line-height: 1.2
         }
@@ -124,12 +124,21 @@ button[type="button"], button[type="submit"]{
             margin-block: 1rem;
             align-items: center;
 
+            & .og-link{
+                font-size: clamp(.875rem, 1vw, 1.5rem);
+                word-wrap: break-word;
+                max-width: 100%;
+                text-align: center;
+            }
+
             &-group{
-                display: inline-flex;
+                display: flex;
                 gap: 2rem;
                 align-items: center;
+                
                 & p{
-                    color: var(--clr-primary-cyan)
+                    color: var(--clr-primary-cyan);
+                    font-size: clamp(.875rem, 1vw, 1.5rem);
                 }
                 
                 & button{
@@ -174,6 +183,7 @@ button[type="button"], button[type="submit"]{
                 white-space: nowrap;
                 border-radius: .5rem;
                 cursor: pointer;
+                font-size: clamp(.875rem, 1vw, 1.5rem);
                 &:hover, &:focus{
                     background-color: transparent;
                     border: 1px solid var(--clr-primary-cyan);
@@ -192,6 +202,7 @@ button[type="button"], button[type="submit"]{
         & p{
             color: var(--clr-netural-grayish-purple);
             font-weight: var(--font-weight-500);
+            font-size: clamp(var(--font-size-300), 1vw, var(--font-size-500));
             padding-top: 1.5rem;
         }
 
@@ -216,7 +227,7 @@ button[type="button"], button[type="submit"]{
                 }
 
                 & h3{
-                    font-size: var(--font-size-500);
+                    font-size: clamp(var(--font-size-300), 1vw, var(--font-size-500));
                     font-weight: var(--font-weight-700);
                     padding-block: 0 1rem;
                 }
@@ -314,6 +325,7 @@ button[type="button"], button[type="submit"]{
     }
 
     .middle{
+        padding-bottom: 15rem;
         &__shorten--link{
             flex-direction: row;
             justify-content: space-between;
@@ -328,7 +340,6 @@ button[type="button"], button[type="submit"]{
             &--cards{
                 display: grid;
                 grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-                grid-template-rows: repeat(5, 100px);
                 row-gap: 1rem;
                 padding-block: 10rem;
                 text-align: left;
@@ -337,16 +348,12 @@ button[type="button"], button[type="submit"]{
                     left: -7rem;
                 }
     
-                & article:nth-child(1){grid-row: 1 / 4;}
-    
                 & article:nth-child(2){
-                    grid-column: 2 / 3;
-                    grid-row: 2 / 5;
+                    transform: translateY(3rem);
                 }
     
                 & article:nth-child(3){
-                    grid-column: 3 / -1;
-                    grid-row: 3 / -1;
+                    transform: translateY(6rem);
                 }
             }
         }
@@ -391,6 +398,31 @@ button[type="button"], button[type="submit"]{
                     width: 100%
                 }
             }
+
+            &--link-group{
+                flex-direction: column;
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media(min-width: 976px) and (max-width: 1514px){
+    .middle{
+        &__stats--cards{
+            gap: 2rem;
+            & article:nth-child(2){transform: translateY(0)}
+            & article:nth-child(3){transform: translateY(0)}
+        }
+    }
+}
+
+@media(min-width: 976px) and (max-width: 1377px){
+    .middle{
+        &__stats--cards{
+            gap: 2rem;
+            row-gap: 4rem;
+            & article:nth-child(3){transform: translateX(50%);}
         }
     }
 }

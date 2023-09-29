@@ -51,12 +51,14 @@ export default function MiddleContents(){
 
     useEffect(() => {
         const fetchData = async () => {
-            const response  = await fetch(`https://api.shrtco.de/v2/shorten?url=${link}`);
-            if (response.status !== 201){
-                throw new Error("Request Failed.")
+            if(link !== ''){
+                const response  = await fetch(`https://api.shrtco.de/v2/shorten?url=${link}`);
+                if (response.status !== 201){
+                    throw new Error("Request Failed.")
+                }
+                const data = await response.json();
+                setData(data)
             }
-            const data = await response.json();
-            setData(data)
         }
 
         fetchData();
@@ -70,7 +72,7 @@ export default function MiddleContents(){
                 {
                     shortLink.shortLink !== '' ? 
                     <div className="middle__shorten--link">
-                        <p>{shortLink.originalLink}</p>
+                        <p className="og-link">{shortLink.originalLink}</p>
                         <div className="middle__shorten--link-group">
                             <p>{shortLink.shortLink}</p>
                             <button type="button" onClick={copyTextToClipboard} className={copyText ? "copied" : ""} value={shortLink.shortLink}>{copyText ? "Copied!" : "Copy"}</button>
