@@ -7,6 +7,12 @@
     gap: $gap;
 }
 
+@mixin grid($min, $max, $gap){
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax($min, $max));
+    gap: $gap;
+}
+
 body{
     font-family: var(--font-family);
     font-size: var(--font-size-400);
@@ -14,10 +20,11 @@ body{
 
 //Sets inline spacing of the elements
 .container{
-    max-width: clamp(60%, 70vw, 90rem);
+    max-width: clamp(60%, 90vw, 90rem);
     margin-inline: auto;
 }
 
+//General button styling
 button[type="button"], button[type="submit"]{
     background-color: var(--clr-primary-cyan);
     padding: .5rem 1.5rem;
@@ -176,6 +183,11 @@ button[type="button"], button[type="submit"]{
                 border-radius: 5px;
                 border: 0;
                 width: 100%;
+                &:focus{
+                    outline-color: var(--clr-secondary-red);
+                    outline-style: solid;
+                    outline-width: 2px;
+                }
             }
 
             & button{
@@ -267,7 +279,7 @@ button[type="button"], button[type="submit"]{
     padding-block: 5rem;
 
     &__wrapper{
-        @include flex(column, 5rem);
+        @include flex(column, clamp(1.25rem, 4vw, 5rem));
         align-items: center;
     }
 
@@ -295,11 +307,232 @@ button[type="button"], button[type="submit"]{
         }
     }
     &__socials{
-        @include flex(row, 2rem);
+        @include flex(row, clamp(.5rem, 1vw, 2rem));
         & svg path{
             &:hover, &:focus{
                 fill: var(--clr-primary-cyan);
                 cursor: pointer;
+            }
+        }
+    }
+}
+
+//About us page
+.about{
+    text-align: center;
+
+    & h1{
+        font-size: clamp(1rem, 5vw, var(--font-size-900));
+        text-align: center;
+        font-weight: var(--font-weight-700);
+        max-width: 20ch;
+        line-height: 1.2;
+        margin-inline: auto;
+        padding-block: 5rem 3rem;
+    }
+
+    & .hero-img{width: 100%;}
+
+    & img{padding-bottom: 2rem}
+
+    & h2{
+        font-size: clamp(1.5rem, 3vw, var(--font-size-800));
+        font-weight: var(--font-weight-700);
+        padding-block: 3rem 1.25rem;
+    }
+
+    & p{
+        color: var(--clr-primary-purple);
+        font-size: clamp(.895rem, 2vw, var(--font-size-500));
+    }
+
+    &__mission{background-color: var(--clr-neutral-off-gray); padding-block: 10rem;}
+
+    &__team{padding-block: 5rem}
+
+    &__difference{
+        padding-bottom: 5rem;
+        background-color: var(--clr-neutral-off-gray);
+        
+        & h2{padding-bottom: 1rem}
+        & h3{
+            padding-block: 1rem .75rem;
+            font-size: clamp(1.15rem, 2vw, var(--font-size-700));
+            font-weight: var(--font-weight-500);
+        }
+        & img{padding-top: 3rem;}
+        &--cell{
+            padding-bottom: 2rem;
+        }
+    }
+
+    &__contact{
+        background-color: var(--clr-primary-purple);
+        padding-block: 5rem;
+        color: #fff;
+
+        & p{text-align: left; color: var(--clr-neutral-gray);}
+        & h2{
+            padding-block: .15rem 2rem; 
+            text-align: left;
+            line-height: 1.2;
+        }
+
+        & label{
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            left: -100000px;
+            top: auto;
+            overflow: hidden;
+        }
+
+        & input, textarea{
+            position: relative;
+            margin-bottom: 1rem;
+            padding: .5rem 1rem;
+            width: 100%;
+            box-shadow: 3px 5px 0 rgba(0 0 0 / .6);
+            background-color: var(--clr-neutral-off-gray);
+            border: 1px solid black;
+        }
+
+        & textarea{
+            resize: none;
+            height: 10rem;
+        }
+
+        & button{
+            background-color: transparent;
+            border: 1px solid #fff;
+            border-radius: 0;
+            color: #fff;
+            float: left;
+            cursor: pointer;
+            &:hover, &:focus, &:active{
+                box-shadow: 5px 7px 0 black;
+            }
+        }
+    }
+}
+
+//Features page
+.features{
+    padding-block: 5em;
+    text-align: center;
+    & h1{
+        font-size: clamp(1.5rem, 4vw, var(--font-size-900));
+        font-weight: var(--font-weight-700);
+        line-height: 1.3;
+        padding-bottom: 2rem;
+    }
+
+    &__heading{padding-block: 5rem}
+
+    &__card{
+        padding-block: 7rem;
+        
+        & h2{
+            font-size: clamp(1.25rem, 4vw, var(--font-size-800));
+            font-weight: var(--font-weight-700);
+            padding-block: 2rem 1rem;
+        }
+
+        & p{
+            font-size: clamp(.895rem, 2vw, var(--font-size-500));
+            padding-bottom: .75rem;
+        }
+
+        &:nth-child(3){background-color: var(--clr-neutral-off-gray)}
+    }
+}
+
+//Pricing page
+.pricing{
+    padding-block: 7rem;
+
+    & img{width: 100%;}
+
+    & h1{
+        font-size: clamp(1.5rem, 5vw, var(--font-size-900));
+        font-weight: var(--font-weight-700);
+        padding-bottom: 1.5rem;
+    }
+
+    & p{font-size: clamp(.9rem, 2vw, var(--font-size-400));}
+
+    &__heading--text{padding-bottom: 2rem;}
+
+    &__cards{
+        @include flex(column, 3rem);
+        padding-block: 10rem;
+
+        & .article{
+            padding: 2rem 4rem;
+            background-color: var(--clr-neutral-off-gray);
+            border-radius: 5px;
+            box-shadow: 0 0 7px rgba(0 0 0 / .6);
+            position: relative;
+
+            &__value{
+                position: absolute;
+                top: -1rem;
+                right: -2rem;
+                background-color: var(--clr-secondary-red);
+                clip-path: circle();
+                padding: 1rem;
+                text-align: center;
+                box-shadow: 0 0 5px rgba(0 0 0 / .6);
+
+                & p{
+                    color: #fff;
+                    font-weight: var(--font-weight-700);
+                }
+            }
+
+            &__heading{
+                text-align: center;
+                padding-block: 2rem;
+                border-bottom: 2px solid gray;
+
+                & h2{
+                    font-size: clamp(1.5rem, 4vw, var(--font-size-800));
+                    font-weight: var(--font-weight-700);
+                }
+    
+                & p{
+                    font-size: clamp(1.25rem, 3vw, var(--font-size-700));
+                    font-weight: var(--font-weight-500);
+                    padding-top: 1rem;
+
+                    & sub{
+                        font-size: var(--font-size-300);
+                    }
+                }
+            }
+
+            &__bullets{
+                padding-block: 2rem;
+                & p{
+                    padding-bottom: .75rem;
+                    &::before{
+                        content: "✅";
+                        padding-right: .5rem;
+                    }
+                }
+            }
+
+            & button{
+                width: 100%;
+                background-color: transparent;
+                border: 1px solid black;
+                border-radius: 0;
+                color: black;
+                cursor: pointer;
+
+                &:hover, &:focus, &:active{
+                    box-shadow: 4px 6px 0 rgba(0 0 0 / .6);
+                }
             }
         }
     }
@@ -371,7 +604,7 @@ button[type="button"], button[type="submit"]{
 
         &__nav{
             flex-direction: row;
-            gap: 5rem;
+            gap: clamp(.5rem, 5vw, 5rem);
             justify-content: left;
 
             &--sub-group{text-align: left}
@@ -379,6 +612,90 @@ button[type="button"], button[type="submit"]{
 
         &__socials{
             align-self: start;
+        }
+    }
+
+    //About us page
+    .about{
+        & .wrapper{
+            @include flex(row, 5rem);
+            align-items: center;
+            & h1{text-align: left;}
+            padding-block: 10rem;
+        }
+
+        &__team{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            place-items: center;
+            gap: 5rem;
+            
+            & .wrapper{
+                @include flex(column, 0);
+                text-align: right;
+                padding: 0;
+            }
+
+            & img{
+                padding-bottom: 0;
+            }
+        }
+
+        &__difference{
+            padding-block: 10rem;
+            &--group{
+                @include flex(row, 3rem);
+                text-align: left;
+            }
+        }
+
+        &__contact{
+            & .wrapper{
+                @include grid(300px, 1fr, 2rem);
+                place-items: center;
+
+                & form{width: 100%;}
+            }
+        }
+    }
+
+    //Features page
+    .features{
+        text-align: unset;
+
+        & img{width: 100%;}
+        &__heading{
+            @include grid(300px, 1fr, 2rem);
+            place-items: center;
+        }
+
+        &__card{
+            @include grid(300px, 1fr, 4rem);
+            place-items: center;
+        }
+
+        & .analytics{
+            @include grid(300px, 1fr, 4rem);
+            place-items: center;
+            & img{
+                order: 2;
+            }
+        }
+
+    }
+
+    //Pricing page
+    .pricing{
+        &__heading{
+            @include grid(300px, 1fr, 2rem)
+        }
+
+        &__cards{
+            @include grid(300px, 1fr, 5rem);
+
+            & article:nth-child(2){
+                transform: scale(1.07);
+            }
         }
     }
 }
@@ -417,12 +734,21 @@ button[type="button"], button[type="submit"]{
     }
 }
 
-@media(min-width: 976px) and (max-width: 1377px){
+@media(min-width: 976px) and (max-width: 1071px){
     .middle{
         &__stats--cards{
             gap: 2rem;
             row-gap: 4rem;
             & article:nth-child(3){transform: translateX(50%);}
+        }
+    }
+}
+
+@media(min-width: 976px) and (max-width: 1177px){
+    .pricing{
+        &__cards{
+            & article:nth-child(2){transform: scale(1)}
+            & article:nth-child(3){transform: translateX(50%)}
         }
     }
 }

@@ -1,34 +1,37 @@
 export default function Features(){
     return(
         <main className="features">
-            <h1>Powerful Features to Enhance Your Link Management Experience</h1>
-            <img src="public/features-hero.svg" alt="illustration" />
-            <section className="features__cards">
-                <div className="features__cards--card">
-                    <img src="public/link.svg" alt="illustration" />
+            <section className="features__heading | container">
+                <h1>Powerful Features to Enhance Your Link Management Experience</h1>
+                <img src="public/illustrations/features-hero.svg" alt="illustration" draggable="false" loading="lazy"/>
+            </section>
+
+            <section className="features__card | container">
+                <img src="public/illustrations/link.svg" alt="illustration" draggable="false" loading="lazy"/>
+                <div className="features__card--text">
                     <h2>Custom Short URLs</h2>
-                    <ul role="list">
-                        <li>Allow users to create custom short URLs with meaningful keywords or names.</li>
-                        <li>This feature provides a personal touch and makes it easier for users to remember and share their shortened links.</li>
-                    </ul>
+                    <p>Allow users to create custom short URLs with meaningful keywords or names.</p>
+                    <p>This feature provides a personal touch and makes it easier for users to remember and share their shortened links.</p>
                 </div>
-                <div className="features__cards--card">
-                    <img src="public/analytics.svg" alt="illustration" />
-                    <h2>Link Analytics</h2>
-                    <ul role="list">
-                        <li>Provide detailed analytics for each shortened URL.</li>
-                        <li>Track metrics like the number of clicks, geographic location of users, referral sources, and more.</li>
-                        <li>This feature helps users understand the performance of their links and optimize their strategies.</li>
-                    </ul>
+            </section>
+            <section className="features__card">
+                <div className="analytics | container">
+                    <img src="public/illustrations/analytics.svg" alt="illustration" draggable="false" loading="lazy"/>
+                    <div className="features__card--text">
+                        <h2>Link Analytics</h2>
+                        <p>Provide detailed analytics for each shortened URL.</p>
+                        <p>Track metrics like the number of clicks, geographic location of users, referral sources, and more.</p>
+                        <p>This feature helps users understand the performance of their links and optimize their strategies.</p>
+                    </div>
                 </div>
-                <div className="features__cards--card">
-                    <img src="public/date.svg" alt="illustration" />
+            </section>
+            <section className="features__card | container">
+                <img src="public/illustrations/date.svg" alt="illustration" draggable="false" loading="lazy"/>                
+                <div className="features__card--text">
                     <h2>Expiration Dates</h2>
-                    <ul role="list">
-                        <li>Enable users to set expiration dates for their shortened URLs.</li>
-                        <li>The link will automatically expire after the specified date, making it no longer accessible.</li>
-                        <li>This feature can be useful for time-sensitive promotions or events, ensuring that the link is only valid for a specific period.</li>
-                    </ul>
+                    <p>Enable users to set expiration dates for their shortened URLs.</p>
+                    <p>The link will automatically expire after the specified date, making it no longer accessible.</p>
+                    <p>This feature can be useful for time-sensitive promotions or events, ensuring that the link is only valid for a specific period.</p>
                 </div>
             </section>
         </main>

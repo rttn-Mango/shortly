@@ -3,33 +3,37 @@ import PricingCard from "../Components/PricingCard";
 export default function Pricing(){
     const PRICING_DATA = [
         {
-            subHeading: 'Basic Tier',
+            subHeading: 'Basic',
             price: '10',
             bullet1: 'Unlimited URL Shortening',
-            bullet2: 'Customizable Short Links',
-            bullet3: 'Basic Analytics:'
+            bullet2: 'Customized Short Links',
+            bullet3: 'Basic Traffic Analytics:'
         },
         {
-            subHeading: 'Pro Tier',
+            subHeading: 'Pro',
             price: '49',
-            bullet1: 'Advanced Analytics',
+            bullet1: 'Previous Tier Benefits',
             bullet2: 'Password Protection',
-            bullet3: 'Priority Support:'
+            bullet3: 'Advanced Analytics:'
         },
         {
-            subHeading: 'Business Tier',
+            subHeading: 'Business',
             price: '99',
-            bullet1: 'Custom Domain Integration',
+            bullet1: 'Previous Tier Benefits',
             bullet2: 'Link Expiration Dates',
-            bullet3: 'Dedicated Account Manager:'
+            bullet3: 'Domain Integration'
         }
     ];
 
     return(
-        <main className="pricing">
-            <h1>Pricing</h1>
-            <p>Discover Your Ideal Plan. Find the pricing option that best suits your business, whether you&apos;re a startup, growing enterprise, or established industry leader. Benefit from transparent pricing with the flexibility to adapt as your needs change. Explore our tailored plans today.</p>
-            <img src="public/pricing.svg" alt="illustration" />
+        <main className="pricing | container">
+            <section className="pricing__heading">
+                <div className="pricing__heading--text">
+                    <h1>Pricing</h1>
+                    <p>Discover Your Ideal Plan. Find the pricing option that best suits your business, whether you&apos;re a startup, growing enterprise, or established industry leader. Benefit from transparent pricing with the flexibility to adapt as your needs change. Explore our tailored plans today.</p>
+                </div>
+                <img src="public/illustrations/pricing.svg" alt="illustration" draggable="false" loading="lazy"/>
+            </section>
             <section className="pricing__cards">
                 {
                     PRICING_DATA.map(tier => {
