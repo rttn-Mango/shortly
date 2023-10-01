@@ -5,11 +5,39 @@ import Footer from "./Pages/Footer";
 import About from "./Pages/About";
 import Features from "./Pages/Features";
 import Pricing from "./Pages/Pricing";
+import Login from './Pages/Login';
+import Signup from './Pages/Signup';
+import { useState, useEffect, useCallback } from 'react';
 
 function App() {
+  const[login, setLogin] = useState(false);
+  const [signup, setSignup] = useState(false);
+
+  const showLoginForm = () => setLogin(!login);
+  const showSignupForm = () => setSignup(!signup);
+
+  const handleFormAppearance = useCallback(() => {
+    const loginForm = document.getElementById('modal');
+    console.log(loginForm);
+    if(loginForm !== null){
+      if(login || signup){
+        loginForm.showModal();
+      }
+      else{
+        loginForm.close();
+      }
+    }
+  }, [login, signup])
+
+  useEffect(() =>{
+    handleFormAppearance()
+  },[handleFormAppearance])
+
   return (
     <>
-      <Header/>
+      <Header showLoginForm={showLoginForm} showSignupForm={showSignupForm}/>
+      {login ? <Login showLoginForm={showLoginForm} showSignupForm={showSignupForm}/> : null}
+      {signup ? <Signup showSignupForm={showSignupForm} showLoginForm={showLoginForm}/> : null}
       <Routes>
           <Route path='/' element={<Main/>}/>
           <Route path='/about' element={<About/>}/>

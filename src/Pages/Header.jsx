@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 import { useState, useEffect, useCallback } from 'react';
+import PropTypes from 'prop-types'
 
-export default function Header(){
+export default function Header({showLoginForm, showSignupForm}){
     const [mobile, setMobile] = useState(false);
 
     const triggerMobileView = () => {
@@ -34,8 +35,8 @@ export default function Header(){
 
                 <div className="header__nav--tabs | dialogs">
                     <ul role='list'>
-                        <li><Link to="">Login</Link></li>
-                        <li><Link to="" className='signup'>Sign Up</Link></li>
+                        <li><Link to="/" onClick={showLoginForm}>Login</Link></li>
+                        <li><Link to="/" onClick={showSignupForm} className='signup'>Sign Up</Link></li>
                     </ul>                              
                 </div>
 
@@ -43,4 +44,9 @@ export default function Header(){
             </nav>
         </header>
     )
+}
+
+Header.propTypes = {
+    showLoginForm: PropTypes.func,
+    showSignupForm: PropTypes.func
 }

@@ -538,6 +538,123 @@ button[type="button"], button[type="submit"]{
     }
 }
 
+//Login form
+.login{
+    background-color: var(--clr-neutral-dark-purple);
+    color: #fff;
+    padding: 2.5rem;
+    margin-block: 5rem;
+    position: relative;
+
+    & img{display: none;}
+
+    & h2{
+        font-size: clamp(1.5rem, 5vw, var(--font-size-900));
+        font-weight: var(--font-weight-700);
+        line-height: 1.1;
+    }
+
+    & .or{
+        text-align: center;
+        text-transform: uppercase;
+        font-size: var(--font-size-300);
+        padding-block: .5rem;
+    }
+
+    & .facebook{color: blue}
+
+    &__form{
+        width: 100%;
+        padding-block: 2rem;
+        @include flex(column, 1.5rem);
+
+        &--group{
+            display: inline-flex;
+            position: relative;
+            align-items: center;
+            background-color: #fff;
+            padding: .5rem 1rem;
+            
+            &:focus-within{border: 2px solid var(--clr-primary-cyan)}
+        }
+
+        & .icon{
+            color: black;
+            min-height: 1.15rem;
+            min-width: 1.15rem;
+        }
+
+        & label{
+            position: absolute;
+            top: auto;
+            right: -10000px;
+            width: 1px;
+            height: 1px;
+        }
+
+        & input{
+            background-color: transparent;
+            border: 0;
+            margin-left: 1rem;
+            outline: 0;
+            height: 100%;
+            width: 100%;
+            cursor: pointer;
+        }
+
+        & button{
+            background-color: transparent;
+            color: #fff;
+            border-radius: 0;
+            border: 1px solid #fff;
+            transform: translateY(0);
+            transition: transform 100ms ease-in-out;
+            cursor: pointer;
+
+            &:hover, &:focus, &:active{
+                box-shadow: 3px 3px 0 #fff;
+                transform: translateY(-4px);
+            }
+        }
+
+
+    }
+
+    & h3{padding-bottom: 1.5rem}
+
+    & strong{font-weight: var(--font-weight-700)}
+
+    &__socials{
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        margin-bottom: 1rem;
+        padding: .75rem 1rem;
+        cursor: pointer;
+        background-color: white;
+        color: black;
+        &:focus, &:hover{
+            background-color: transparent;
+            color: #fff;
+            border: 1px solid #fff;
+
+            & .facebook{
+                color: #fff;
+            }
+        }
+
+        & .icon{
+            width: 1.75rem;
+            height: 1.75rem;
+        }
+
+        & p{
+            margin-left: 1rem;
+        }
+    }
+}
+
 @media(min-width: 61rem){
     .header{
         & button{display: none;}
@@ -697,6 +814,33 @@ button[type="button"], button[type="submit"]{
                 transform: scale(1.07);
             }
         }
+    }
+
+    //Login form
+    .login{
+        @include flex(row, 3rem);
+        & img{
+            display: block; 
+            background-color: #fff;
+            border-radius: 1rem;
+            width: 50%;
+        }
+        & .wrapper{ width: 50%}
+
+        & .redirect{
+            @include flex(row, 2rem);
+
+            & a{
+                text-decoration: none;
+                padding-left: 1rem;
+                color: black;
+                &:hover, &:focus{
+                    color: #fff;
+                }
+            }
+        }
+
+        &::backdrop{background-color: rgba(0 0 0 / .7)}
     }
 }
 
