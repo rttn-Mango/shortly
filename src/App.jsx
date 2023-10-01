@@ -13,21 +13,31 @@ function App() {
   const[login, setLogin] = useState(false);
   const [signup, setSignup] = useState(false);
 
-  const showLoginForm = () => setLogin(!login);
-  const showSignupForm = () => setSignup(!signup);
+  const showLoginForm = useCallback(() => setLogin(!login), [login])
+  const showSignupForm = useCallback(() => setSignup(!signup), [signup])
 
   const handleFormAppearance = useCallback(() => {
     const loginForm = document.getElementById('modal');
-    if(loginForm !== null){
-      if(login || signup){
-        loginForm.showModal();
-      }
-      else{
-        loginForm.close();
-      }
-    }
-  }, [login, signup])
+    if(loginForm === null) return
 
+    //For closing modal when esc key is pressed
+    window.addEventListener('keydown', (event) => {
+      if(event.key === 'Escape'){
+        loginForm.close();
+        login && !signup ? showLoginForm() : showSignupForm();
+      }
+    })
+
+    //For closing modal when Link tag is pressed
+    if(login || signup){
+      loginForm.showModal();
+    }
+    else{
+      loginForm.close();
+    }
+  }, [login, signup, showLoginForm, showSignupForm])
+
+  
   useEffect(() =>{
     handleFormAppearance()
   },[handleFormAppearance])
