@@ -47,7 +47,7 @@ export default function Login({showLoginForm, showSignupForm}){
                     </Link>
                 </div>
             </div>
-            <img src="public/illustrations/login.svg" alt="illustration" draggable="false" loading='lazy'/>
+            <img src={"/login.svg"} alt="illustration" draggable="false" loading='lazy'/>
         </dialog>
     )
 }

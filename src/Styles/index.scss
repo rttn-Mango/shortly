@@ -165,7 +165,7 @@ button[type="button"], button[type="submit"]{
         & form{
             @include flex(row, 2rem);
             background-color: var(--clr-primary-purple);
-            background-image: url("src/assets/bg-shorten-desktop.svg");
+            background-image: url("/bg-shorten-desktop.svg");
             padding: 2rem;
 
             & label{
@@ -254,7 +254,7 @@ button[type="button"], button[type="submit"]{
     color: #fff;
     padding-block: 5rem;
     text-align: center;
-    background-image: url('src/assets/bg-boost-mobile.svg');
+    background-image: url('/bg-boost-mobile.svg');
     background-position: right center;
     background-size: cover;
 
@@ -775,7 +775,7 @@ button[type="button"], button[type="submit"]{
         }
     }
 
-    .cta{background-image: url('src/assets/bg-boost-desktop.svg')}
+    .cta{background-image: url('/bg-boost-desktop.svg')}
 
     .footer{
         &__wrapper{
@@ -915,7 +915,7 @@ button[type="button"], button[type="submit"]{
 @media(max-width: 600px){
     .middle{
         &__shorten{
-            background-image: url("src/assets/bg-shorten-mobile.svg");
+            background-image: url("/bg-shorten-mobile.svg");
             background-position: top right;
             background-repeat: no-repeat;
             inset: -5rem 0 auto 0;

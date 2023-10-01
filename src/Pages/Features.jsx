@@ -3,11 +3,11 @@ export default function Features(){
         <main className="features">
             <section className="features__heading | container">
                 <h1>Powerful Features to Enhance Your Link Management Experience</h1>
-                <img src="public/illustrations/features-hero.svg" alt="illustration" draggable="false" loading="lazy"/>
+                <img src="/features-hero.svg" alt="illustration" draggable="false" loading="lazy"/>
             </section>
 
             <section className="features__card | container">
-                <img src="public/illustrations/link.svg" alt="illustration" draggable="false" loading="lazy"/>
+                <img src="/link.svg" alt="illustration" draggable="false" loading="lazy"/>
                 <div className="features__card--text">
                     <h2>Custom Short URLs</h2>
                     <p>Allow users to create custom short URLs with meaningful keywords or names.</p>
@@ -16,7 +16,7 @@ export default function Features(){
             </section>
             <section className="features__card">
                 <div className="analytics | container">
-                    <img src="public/illustrations/analytics.svg" alt="illustration" draggable="false" loading="lazy"/>
+                    <img src="/analytics.svg" alt="illustration" draggable="false" loading="lazy"/>
                     <div className="features__card--text">
                         <h2>Link Analytics</h2>
                         <p>Provide detailed analytics for each shortened URL.</p>
@@ -26,7 +26,7 @@ export default function Features(){
                 </div>
             </section>
             <section className="features__card | container">
-                <img src="public/illustrations/date.svg" alt="illustration" draggable="false" loading="lazy"/>                
+                <img src="/date.svg" alt="illustration" draggable="false" loading="lazy"/>                
                 <div className="features__card--text">
                     <h2>Expiration Dates</h2>
                     <p>Enable users to set expiration dates for their shortened URLs.</p>

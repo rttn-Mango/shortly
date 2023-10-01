@@ -2,7 +2,7 @@ export default function Footer(){
     return(
         <footer className="footer">
             <div className="footer__wrapper | container">
-                <a href=""><img src="src/assets/logo-white.svg" alt="Shortly logo" /></a>
+                <a href=""><img src="/logo-white.svg" alt="Shortly logo" /></a>
                 <div className="footer__nav">
                     <div className="footer__nav--sub-group">
                         <p>Features</p>

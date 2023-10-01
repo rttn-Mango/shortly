@@ -20,7 +20,7 @@ export default function Header({showLoginForm, showSignupForm}){
         <header className='header | container'>
             <nav className='header__nav'>
                 <Link to ="/">
-                    <img src="src/assets/logo.svg" alt="Shortly logo" draggable="false"/>
+                    <img src="/logo.svg" alt="Shortly logo" draggable="false"/>
                 </Link>
 
                 <div className="header__nav--tabs">
@@ -40,12 +40,12 @@ export default function Header({showLoginForm, showSignupForm}){
 
                 {
                     mobile ? null
-                    : <button onClick={triggerMobileView} type="button" className='hamburger--icon'><img src="src/assets/icon-hamburger.svg" alt="hamburger icon" /></button>
+                    : <button onClick={triggerMobileView} type="button" className='hamburger--icon'><img src="/icon-hamburger.svg" alt="hamburger icon" /></button>
                 }
             </nav>
 
             <div className={mobile ? "hamburger active" : "hamburger"}>
-                <button type="button" onClick={triggerMobileView} className='hamburger__icon'><img src="src/assets/icon-close-white.svg" alt="hamburger icon" /></button>
+                <button type="button" onClick={triggerMobileView} className='hamburger__icon'><img src="/icon-close-white.svg" alt="close icon" /></button>
                 <div className="hamburger__tabs">
                     <ul role='list' className='hamburger__tabs--first'>
                         <li><Link to="/about" onClick={triggerMobileView}>About Us</Link></li>

@@ -12,17 +12,17 @@ export default function MiddleContents(){
 
     const STAT_CARD_DATA = [
         {
-            path: "src/assets/icon-brand-recognition.svg",
+            path: "/icon-brand-recognition.svg",
             subHeading: "Brand Recognition",
             content: "Boost your brand recognition with each click. Generic links don't mean a thing. Branded links help instill confidence in your content."
         },
         {
-            path: "src/assets/icon-detailed-records.svg",
+            path: "/icon-detailed-records.svg",
             subHeading: "Detailed Records",
             content: "Gain insights on who is clicking your links. Knowing when and where people enggage with your content helps inform better decisions."
         },
         {
-            path: "src/assets/icon-fully-customizable.svg",
+            path: "/icon-fully-customizable.svg",
             subHeading: "Fully Customizable",
             content: "Improve brand awareness and content discoverability through customizable links. Supercharging audience with engagement."
         }

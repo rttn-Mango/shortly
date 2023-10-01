@@ -235,7 +235,7 @@ button[type=button], button[type=submit] {
   flex-direction: row;
   gap: 2rem;
   background-color: var(--clr-primary-purple);
-  background-image: url("src/assets/bg-shorten-desktop.svg");
+  background-image: url("/bg-shorten-desktop.svg");
   padding: 2rem;
 }
 .middle__shorten form label {
@@ -315,7 +315,7 @@ button[type=button], button[type=submit] {
   color: #fff;
   padding-block: 5rem;
   text-align: center;
-  background-image: url("src/assets/bg-boost-mobile.svg");
+  background-image: url("/bg-boost-mobile.svg");
   background-position: right center;
   background-size: cover;
 }
@@ -804,7 +804,7 @@ button[type=button], button[type=submit] {
     transform: translateY(6rem);
   }
   .cta {
-    background-image: url("src/assets/bg-boost-desktop.svg");
+    background-image: url("/bg-boost-desktop.svg");
   }
   .footer__wrapper {
     flex-direction: row;
@@ -943,7 +943,7 @@ button[type=button], button[type=submit] {
 }
 @media (max-width: 600px) {
   .middle__shorten {
-    background-image: url("src/assets/bg-shorten-mobile.svg");
+    background-image: url("/bg-shorten-mobile.svg");
     background-position: top right;
     background-repeat: no-repeat;
     inset: -5rem 0 auto 0;

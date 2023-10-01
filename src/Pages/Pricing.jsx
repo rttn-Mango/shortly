@@ -32,7 +32,7 @@ export default function Pricing(){
                     <h1>Pricing</h1>
                     <p>Discover Your Ideal Plan. Find the pricing option that best suits your business, whether you&apos;re a startup, growing enterprise, or established industry leader. Benefit from transparent pricing with the flexibility to adapt as your needs change. Explore our tailored plans today.</p>
                 </div>
-                <img src="public/illustrations/pricing.svg" alt="illustration" draggable="false" loading="lazy"/>
+                <img src="/pricing.svg" alt="illustration" draggable="false" loading="lazy"/>
             </section>
             <section className="pricing__cards">
                 {
