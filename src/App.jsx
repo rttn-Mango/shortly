@@ -18,7 +18,6 @@ function App() {
 
   const handleFormAppearance = useCallback(() => {
     const loginForm = document.getElementById('modal');
-    console.log(loginForm);
     if(loginForm !== null){
       if(login || signup){
         loginForm.showModal();

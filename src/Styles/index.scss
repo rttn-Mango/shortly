@@ -545,8 +545,11 @@ button[type="button"], button[type="submit"]{
     padding: 2.5rem;
     margin-block: 5rem;
     position: relative;
+    pointer-events: all;
+    touch-action: auto;
 
     & img{display: none;}
+    & a{text-decoration: none;}
 
     & h2{
         font-size: clamp(1.5rem, 5vw, var(--font-size-900));
@@ -587,9 +590,10 @@ button[type="button"], button[type="submit"]{
         & label{
             position: absolute;
             top: auto;
-            right: -10000px;
+            left: -10000px;
             width: 1px;
             height: 1px;
+            overflow: hidden;
         }
 
         & input{
@@ -616,8 +620,6 @@ button[type="button"], button[type="submit"]{
                 transform: translateY(-4px);
             }
         }
-
-
     }
 
     & h3{padding-bottom: 1.5rem}
@@ -652,6 +654,70 @@ button[type="button"], button[type="submit"]{
         & p{
             margin-left: 1rem;
         }
+    }
+}
+
+.disabled{
+    overflow: hidden;
+    touch-action: none;
+    pointer-events: none;
+}
+
+//Active hamburger nav
+.hamburger{
+    padding: 2rem;
+    text-align: center;
+    background-color: var(--clr-primary-purple);
+    border-radius: 1rem;
+    position:fixed;
+    inset: 5rem 0 auto 0;
+    margin: auto;
+    width: 80%;
+    z-index: 1;
+    transform: translateY(-200%);
+    transition: transform 300ms ease-in-out;
+    pointer-events: all;
+
+    &__icon{
+        position: inherit;
+        top: 1rem;
+        right: 0;
+    }
+
+    & a{
+        color: #fff; 
+        text-decoration: none;
+        font-weight: var(--font-weight-500);
+        &:hover, &:focus, &:active{
+            color: var(--clr-primary-cyan);
+            font-weight: var(--font-weight-700);
+        }
+    }
+    & li{padding-bottom: 2rem}
+
+    & .signup{
+        display: block;
+        border-radius: 0;
+        background-color: transparent;
+        border: 1px solid var(--clr-primary-cyan);
+        transform: translateY(0);
+        transition: transform 200ms ease-in-out;
+
+        &:hover, &:focus, &:active{
+            box-shadow: 3px 4px 0 var(--clr-primary-cyan);
+            transform: translateY(-4px);
+            opacity: 1;
+        }
+    }
+
+    &__tabs{
+        &:not(:nth-child(1)){padding-top: 2rem}
+        &--first{border-bottom: 1px solid var(--clr-neutral-gray)}
+    }
+
+    &.active{
+        transform: translateY(0);
+        box-shadow: 0 0 200vw rgba(0 0 0 / .9);
     }
 }
 
@@ -831,7 +897,6 @@ button[type="button"], button[type="submit"]{
             @include flex(row, 2rem);
 
             & a{
-                text-decoration: none;
                 padding-left: 1rem;
                 color: black;
                 &:hover, &:focus{
@@ -842,6 +907,9 @@ button[type="button"], button[type="submit"]{
 
         &::backdrop{background-color: rgba(0 0 0 / .7)}
     }
+
+    //Active Hamburger form
+    .hamburger{display: none}
 }
 
 @media(max-width: 600px){

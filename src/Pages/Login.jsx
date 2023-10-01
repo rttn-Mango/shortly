@@ -12,7 +12,7 @@ export default function Login({showLoginForm, showSignupForm}){
                 <p>Glad to see you back with us</p>
                 <form action="" className='login__form'>
                     <div className='login__form--group'>
-                        <label htmlFor="">Username</label>
+                        <label htmlFor="username">Username</label>
                         <BiUser className='icon'/>
                         <input type="text" id='username' name='username' required placeholder='Username'/>
                     </div>
@@ -47,7 +47,7 @@ export default function Login({showLoginForm, showSignupForm}){
                     </Link>
                 </div>
             </div>
-            <img src="public/illustrations/login.svg" alt="illustration" />
+            <img src="public/illustrations/login.svg" alt="illustration" draggable="false" loading='lazy'/>
         </dialog>
     )
 }

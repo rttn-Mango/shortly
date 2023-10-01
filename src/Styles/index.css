@@ -592,9 +592,14 @@ button[type=button], button[type=submit] {
   padding: 2.5rem;
   margin-block: 5rem;
   position: relative;
+  pointer-events: all;
+  touch-action: auto;
 }
 .login img {
   display: none;
+}
+.login a {
+  text-decoration: none;
 }
 .login h2 {
   font-size: clamp(1.5rem, 5vw, var(--font-size-900));
@@ -635,9 +640,10 @@ button[type=button], button[type=submit] {
 .login__form label {
   position: absolute;
   top: auto;
-  right: -10000px;
+  left: -10000px;
   width: 1px;
   height: 1px;
+  overflow: hidden;
 }
 .login__form input {
   background-color: transparent;
@@ -692,6 +698,67 @@ button[type=button], button[type=submit] {
 }
 .login__socials p {
   margin-left: 1rem;
+}
+
+.disabled {
+  overflow: hidden;
+  touch-action: none;
+  pointer-events: none;
+}
+
+.hamburger {
+  padding: 2rem;
+  text-align: center;
+  background-color: var(--clr-primary-purple);
+  border-radius: 1rem;
+  position: fixed;
+  inset: 5rem 0 auto 0;
+  margin: auto;
+  width: 80%;
+  z-index: 1;
+  transform: translateY(-200%);
+  transition: transform 300ms ease-in-out;
+  pointer-events: all;
+}
+.hamburger__icon {
+  position: inherit;
+  top: 1rem;
+  right: 0;
+}
+.hamburger a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: var(--font-weight-500);
+}
+.hamburger a:hover, .hamburger a:focus, .hamburger a:active {
+  color: var(--clr-primary-cyan);
+  font-weight: var(--font-weight-700);
+}
+.hamburger li {
+  padding-bottom: 2rem;
+}
+.hamburger .signup {
+  display: block;
+  border-radius: 0;
+  background-color: transparent;
+  border: 1px solid var(--clr-primary-cyan);
+  transform: translateY(0);
+  transition: transform 200ms ease-in-out;
+}
+.hamburger .signup:hover, .hamburger .signup:focus, .hamburger .signup:active {
+  box-shadow: 3px 4px 0 var(--clr-primary-cyan);
+  transform: translateY(-4px);
+  opacity: 1;
+}
+.hamburger__tabs:not(:nth-child(1)) {
+  padding-top: 2rem;
+}
+.hamburger__tabs--first {
+  border-bottom: 1px solid var(--clr-neutral-gray);
+}
+.hamburger.active {
+  transform: translateY(0);
+  box-shadow: 0 0 200vw rgba(0, 0, 0, 0.9);
 }
 
 @media (min-width: 61rem) {
@@ -861,7 +928,6 @@ button[type=button], button[type=submit] {
     gap: 2rem;
   }
   .login .redirect a {
-    text-decoration: none;
     padding-left: 1rem;
     color: black;
   }
@@ -870,6 +936,9 @@ button[type=button], button[type=submit] {
   }
   .login::backdrop {
     background-color: rgba(0, 0, 0, 0.7);
+  }
+  .hamburger {
+    display: none;
   }
 }
 @media (max-width: 600px) {

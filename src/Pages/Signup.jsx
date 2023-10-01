@@ -7,13 +7,13 @@ import PropTypes from 'prop-types'
 export default function Signup({showSignupForm, showLoginForm}){
     return(
         <dialog className="login | container" id='modal'>
-            <img src="public/illustrations/signup.svg" alt="illustration" />
+            <img src="public/illustrations/signup.svg" alt="illustration" draggable="false" loading='lazy'/>
             <div className='wrapper'>
                 <h2 style={{lineHeight: '1.3'}}>Sign up</h2>
                 <p>Glad to see you stay with us</p>
                 <form action="" className='login__form'>
                     <div className='login__form--group'>
-                        <label htmlFor="">Username</label>
+                        <label htmlFor="username">Username</label>
                         <BiUser className='icon'/>
                         <input type="text" id='username' name='username' required placeholder='Username'/>
                     </div>
