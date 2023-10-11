@@ -132,6 +132,10 @@ button[type=button], button[type=submit] {
 .header__nav .dialogs {
   margin-left: auto;
 }
+.header__nav img {
+  max-width: 8.125rem;
+  max-height: 3.25rem;
+}
 .header .signup {
   background-color: var(--clr-primary-cyan);
   padding: 0.5rem 1rem;
@@ -164,6 +168,7 @@ button[type=button], button[type=submit] {
 .hero img {
   position: relative;
   max-height: 30rem;
+  max-width: 50rem;
   right: -2rem;
 }
 .hero__heading {
@@ -340,6 +345,10 @@ button[type=button], button[type=submit] {
   flex-direction: column;
   gap: clamp(1.25rem, 4vw, 5rem);
   align-items: center;
+}
+.footer img {
+  max-width: 8.125rem;
+  max-height: 3.25rem;
 }
 .footer__nav {
   display: flex;
@@ -939,6 +948,14 @@ button[type=button], button[type=submit] {
   }
   .hamburger {
     display: none;
+  }
+}
+@keyframes img-placeholder {
+  from {
+    background-color: hsl(200, 20%, 70%);
+  }
+  to {
+    background-color: hsl(200, 20%, 95%);
   }
 }
 @media (max-width: 600px) {

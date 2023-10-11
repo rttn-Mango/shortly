@@ -4,7 +4,7 @@ export default function StatCard({path, subHeading, content}){
     return(
         <article>
             <div>
-                <img src={path} alt="icon"/>
+                <img height={50} width={45} src={path} alt="icon"/>
             </div>
             <h3>{subHeading}</h3>
             <p>{content}</p>

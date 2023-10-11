@@ -59,6 +59,11 @@ button[type="button"], button[type="submit"]{
             }
         }
         & .dialogs{margin-left: auto;}
+
+        & img{
+            max-width: 8.125rem;
+            max-height: 3.25rem;
+        }
     }
 
     & .signup{
@@ -91,6 +96,7 @@ button[type="button"], button[type="submit"]{
     & img{
         position: relative;
         max-height: 30rem;
+        max-width: 50rem;
         right: -2rem;
     }
 
@@ -283,6 +289,11 @@ button[type="button"], button[type="submit"]{
         align-items: center;
     }
 
+    & img{
+        max-width: 8.125rem;
+        max-height: 3.25rem;
+    }
+
     &__nav{
         @include flex(column, 3rem);
         &--sub-group{
@@ -331,7 +342,7 @@ button[type="button"], button[type="submit"]{
         padding-block: 5rem 3rem;
     }
 
-    & .hero-img{width: 100%;}
+    & .hero-img{width: 100%}
 
     & img{padding-bottom: 2rem}
 
@@ -910,6 +921,11 @@ button[type="button"], button[type="submit"]{
 
     //Active Hamburger form
     .hamburger{display: none}
+}
+
+@keyframes img-placeholder {
+    from{background-color: hsl(200 20% 70%)}
+    to{background-color: hsl(200 20% 95%)}
 }
 
 @media(max-width: 600px){
