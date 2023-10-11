@@ -94,8 +94,8 @@ button[type="button"], button[type="submit"]{
 
     & img{
         position: relative;
-        max-height: auto;
-        max-width: 20rem;
+        height: 50%;
+        max-width: 70%;
         right: -2rem;
     }
 
@@ -744,9 +744,11 @@ button[type="button"], button[type="submit"]{
         flex-direction: row;
         max-width: clamp(60%, 70vw, 90rem);
         margin-inline: auto;
+        margin-block: 5rem;
+
         & img{
             order: 2;
-            max-width: 50%;
+            max-width: 55%;
         }
     }
 

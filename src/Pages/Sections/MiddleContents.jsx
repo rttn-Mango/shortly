@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import StatCard from "../../Components/StatCard";
 import Form from "../../Components/Form";
 
@@ -30,14 +30,14 @@ export default function MiddleContents(){
 
     const setLongLink = (link) => setLink(link);
 
-    const setData = (data) => {
+    const setData = useCallback((data) => {
         setShortLink(() => {
             let tempLink = {...shortLink}
             tempLink.originalLink = data.result.original_link;
             tempLink.shortLink = data.result.full_short_link;
             return tempLink
         })
-    }
+    }, [shortLink])
 
     const copyTextToClipboard = () => {
         navigator.clipboard.writeText(shortLink.shortLink)
@@ -52,8 +52,10 @@ export default function MiddleContents(){
     useEffect(() => {
         const fetchData = async () => {
             if(link !== ''){
+                //api.shrtco.de is currently down so this is not gonna work
                 const response  = await fetch(`https://api.shrtco.de/v2/shorten?url=${link}`);
-                if (response.status !== 201){
+                console.log(response);
+                if (response.status !== 200 || response.status !== 201){
                     throw new Error("Request Failed.")
                 }
                 const data = await response.json();
@@ -62,7 +64,7 @@ export default function MiddleContents(){
         }
 
         fetchData();
-    }, [link])
+    }, [link, setData])
 
     return(
         <section className="middle">
