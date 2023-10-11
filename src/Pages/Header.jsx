@@ -40,12 +40,12 @@ export default function Header({showLoginForm, showSignupForm}){
 
                 {
                     mobile ? null
-                    : <button onClick={triggerMobileView} type="button" className='hamburger--icon'><img height={30} width={30} src="/icon-hamburger.svg" alt="hamburger icon" /></button>
+                    : <button onClick={triggerMobileView} type="button" className='hamburger--icon'><img height={15} width={20} src="/icon-hamburger.svg" alt="hamburger icon" /></button>
                 }
             </nav>
 
             <div className={mobile ? "hamburger active" : "hamburger"}>
-                <button type="button" onClick={triggerMobileView} className='hamburger__icon'><img height={30} width={30} src="/icon-close-white.svg" alt="close icon" /></button>
+                <button type="button" onClick={triggerMobileView} className='hamburger__icon'><img height={15} width={20} src="/icon-close-white.svg" alt="close icon" /></button>
                 <div className="hamburger__tabs">
                     <ul role='list' className='hamburger__tabs--first'>
                         <li><Link to="/about" onClick={triggerMobileView}>About Us</Link></li>

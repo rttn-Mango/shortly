@@ -60,7 +60,7 @@ button[type="button"], button[type="submit"]{
         }
         & .dialogs{margin-left: auto;}
 
-        & img{
+        & a img{
             max-width: 8.125rem;
             max-height: 3.25rem;
         }
@@ -96,7 +96,7 @@ button[type="button"], button[type="submit"]{
     & img{
         position: relative;
         max-height: 30rem;
-        max-width: 50rem;
+        max-width: 50%;
         right: -2rem;
     }
 
@@ -289,7 +289,7 @@ button[type="button"], button[type="submit"]{
         align-items: center;
     }
 
-    & img{
+    & a img{
         max-width: 8.125rem;
         max-height: 3.25rem;
     }
@@ -748,6 +748,8 @@ button[type="button"], button[type="submit"]{
         margin-inline: auto;
         & img{
             order: 2;
+            max-height: 30rem;
+            max-width: 50rem;
         }
     }
 

@@ -132,7 +132,7 @@ button[type=button], button[type=submit] {
 .header__nav .dialogs {
   margin-left: auto;
 }
-.header__nav img {
+.header__nav a img {
   max-width: 8.125rem;
   max-height: 3.25rem;
 }
@@ -168,7 +168,7 @@ button[type=button], button[type=submit] {
 .hero img {
   position: relative;
   max-height: 30rem;
-  max-width: 50rem;
+  max-width: 50%;
   right: -2rem;
 }
 .hero__heading {
@@ -346,7 +346,7 @@ button[type=button], button[type=submit] {
   gap: clamp(1.25rem, 4vw, 5rem);
   align-items: center;
 }
-.footer img {
+.footer a img {
   max-width: 8.125rem;
   max-height: 3.25rem;
 }
@@ -784,6 +784,8 @@ button[type=button], button[type=submit] {
   }
   .hero img {
     order: 2;
+    max-height: 30rem;
+    max-width: 50rem;
   }
   .middle {
     padding-bottom: 15rem;
