@@ -62,12 +62,12 @@ picture, svg {
   }
 }
 :root {
-  --clr-primary-cyan: hsl(180, 66%, 49%);
+  --clr-primary-cyan: hsl(180, 66%, 60%);
   --clr-primary-purple: hsl(257, 27%, 26%);
   --clr-secondary-red: hsl(0, 87%, 67%);
   --clr-neutral-gray: hsl(0, 0%, 75%);
   --clr-neutral-off-gray: hsl(225, 33%, 95%);
-  --clr-netural-grayish-purple: hsl(257, 7%, 63%);
+  --clr-netural-grayish-purple: hsl(270, 14%, 23%);
   --clr-neutral-dark-blue: hsl(255, 11%, 22%);
   --clr-neutral-dark-purple: hsl(260, 8%, 14%);
   --font-size-300: .875rem;
@@ -97,7 +97,7 @@ button[type=button], button[type=submit] {
   padding: 0.5rem 1.5rem;
   border: 0;
   border-radius: 2rem;
-  color: #fff;
+  color: black;
   font-weight: var(--font-weight-500);
 }
 
@@ -132,20 +132,16 @@ button[type=button], button[type=submit] {
 .header__nav .dialogs {
   margin-left: auto;
 }
-.header__nav a img {
-  max-width: 8.125rem;
-  max-height: 3.25rem;
-}
 .header .signup {
   background-color: var(--clr-primary-cyan);
   padding: 0.5rem 1rem;
   border-radius: 2rem;
-  color: #fff;
+  color: black;
   font-weight: var(--font-weight-500);
 }
-.header .signup:hover, .header .signup:focus {
-  opacity: 0.6;
-  color: #fff;
+.header .signup:hover, .header .signup:focus, .header .signup:active {
+  background-color: transparent;
+  border: 1px solid var(--clr-primary-cyan);
 }
 .header button {
   display: inline;
@@ -167,8 +163,8 @@ button[type=button], button[type=submit] {
 }
 .hero img {
   position: relative;
-  max-height: 30rem;
-  max-width: 50%;
+  max-height: auto;
+  max-width: 20rem;
   right: -2rem;
 }
 .hero__heading {
@@ -187,10 +183,11 @@ button[type=button], button[type=submit] {
 .hero__heading button {
   margin-top: 2rem;
   margin-bottom: 5rem;
+  cursor: pointer;
 }
 .hero__heading button:hover, .hero__heading button:focus, .hero__heading button:active {
-  opacity: 0.6;
-  cursor: pointer;
+  background-color: transparent;
+  border: 1px solid var(--clr-primary-cyan);
 }
 
 .middle {
@@ -273,6 +270,7 @@ button[type=button], button[type=submit] {
 .middle__shorten form button:hover, .middle__shorten form button:focus {
   background-color: transparent;
   border: 1px solid var(--clr-primary-cyan);
+  color: #fff;
 }
 .middle__stats {
   text-align: center;
@@ -333,6 +331,7 @@ button[type=button], button[type=submit] {
   background-color: transparent;
   border: 2px solid var(--clr-primary-cyan);
   cursor: pointer;
+  color: #fff;
 }
 
 .footer {
@@ -345,10 +344,6 @@ button[type=button], button[type=submit] {
   flex-direction: column;
   gap: clamp(1.25rem, 4vw, 5rem);
   align-items: center;
-}
-.footer a img {
-  max-width: 8.125rem;
-  max-height: 3.25rem;
 }
 .footer__nav {
   display: flex;
@@ -784,8 +779,7 @@ button[type=button], button[type=submit] {
   }
   .hero img {
     order: 2;
-    max-height: 30rem;
-    max-width: 50rem;
+    max-width: 50%;
   }
   .middle {
     padding-bottom: 15rem;

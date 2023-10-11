@@ -20,7 +20,7 @@ export default function Header({showLoginForm, showSignupForm}){
         <header className='header | container'>
             <nav className='header__nav'>
                 <Link to ="/">
-                    <img src="/logo.svg" alt="Shortly logo" draggable="false"/>
+                    <img src="/logo.svg" height={40} width={130} alt="Shortly logo" draggable="false"/>
                 </Link>
 
                 <div className="header__nav--tabs">

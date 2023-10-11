@@ -30,7 +30,7 @@ button[type="button"], button[type="submit"]{
     padding: .5rem 1.5rem;
     border: 0;
     border-radius: 2rem;
-    color: #fff;
+    color: black;
     font-weight: var(--font-weight-500);
 }
 
@@ -59,20 +59,18 @@ button[type="button"], button[type="submit"]{
             }
         }
         & .dialogs{margin-left: auto;}
-
-        & a img{
-            max-width: 8.125rem;
-            max-height: 3.25rem;
-        }
     }
 
     & .signup{
         background-color: var(--clr-primary-cyan);
         padding: .5rem 1rem;
         border-radius: 2rem;
-        color: #fff;
+        color: black;
         font-weight: var(--font-weight-500);       
-        &:hover, &:focus{opacity: .6; color: #fff;}
+        &:hover, &:focus, &:active{
+            background-color: transparent;
+            border: 1px solid var(--clr-primary-cyan);
+        }
     }
 
     & button{
@@ -81,6 +79,7 @@ button[type="button"], button[type="submit"]{
         border: 0;
         margin-left: auto;
         cursor: pointer;
+        
     }
 }
 
@@ -95,8 +94,8 @@ button[type="button"], button[type="submit"]{
 
     & img{
         position: relative;
-        max-height: 30rem;
-        max-width: 50%;
+        max-height: auto;
+        max-width: 20rem;
         right: -2rem;
     }
 
@@ -114,9 +113,11 @@ button[type="button"], button[type="submit"]{
         }
         & button{
             margin-top: 2rem; margin-bottom: 5rem;
+            cursor: pointer;
+
             &:hover, &:focus, &:active{
-                opacity: .6;
-                cursor: pointer;
+                background-color: transparent;
+                border: 1px solid var(--clr-primary-cyan);
             }
         }
     }
@@ -205,6 +206,7 @@ button[type="button"], button[type="submit"]{
                 &:hover, &:focus{
                     background-color: transparent;
                     border: 1px solid var(--clr-primary-cyan);
+                    color: #fff;
                 }
             }
         }
@@ -275,6 +277,7 @@ button[type="button"], button[type="submit"]{
             background-color: transparent;
             border: 2px solid var(--clr-primary-cyan);
             cursor: pointer;
+            color: #fff;
         }
     }
 }
@@ -287,11 +290,6 @@ button[type="button"], button[type="submit"]{
     &__wrapper{
         @include flex(column, clamp(1.25rem, 4vw, 5rem));
         align-items: center;
-    }
-
-    & a img{
-        max-width: 8.125rem;
-        max-height: 3.25rem;
     }
 
     &__nav{
@@ -748,8 +746,7 @@ button[type="button"], button[type="submit"]{
         margin-inline: auto;
         & img{
             order: 2;
-            max-height: 30rem;
-            max-width: 50rem;
+            max-width: 50%;
         }
     }
 

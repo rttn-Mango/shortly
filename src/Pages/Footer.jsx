@@ -1,32 +1,34 @@
+import { Link } from 'react-router-dom';
+
 export default function Footer(){
     return(
         <footer className="footer">
             <div className="footer__wrapper | container">
-                <a href=""><img src="/logo-white.svg" alt="Shortly logo" /></a>
+                <Link to="/"><img height={40} width={130} src="/logo-white.svg" alt="Shortly logo" /></Link>
                 <div className="footer__nav">
                     <div className="footer__nav--sub-group">
                         <p>Features</p>
                         <ul role="list">
-                            <li><a href="">Link Shortening</a></li>
-                            <li><a href="">Branded Links</a></li>
-                            <li><a href="">Analytics</a></li>                  
+                            <li><Link to="/">Link Shortening</Link></li>
+                            <li><Link to="/">Branded Links</Link></li>
+                            <li><Link to="/">Analytics</Link></li>                  
                         </ul>
                     </div>
                     <div className="footer__nav--sub-group">
                         <p>Resources</p>
                         <ul role="list">
-                            <li><a href="">Blog</a></li>
-                            <li><a href="">Developers</a></li>
-                            <li><a href="">Support</a></li>                  
+                            <li><Link to="/">Blog</Link></li>
+                            <li><Link to="/">Developers</Link></li>
+                            <li><Link to="/">Support</Link></li>                  
                         </ul>
                     </div>
                     <div className="footer__nav--sub-group">
                         <p>Company</p>
                         <ul role="list">
-                            <li><a href="">About</a></li>
-                            <li><a href="">Our Team</a></li>
-                            <li><a href="">Careers</a></li>
-                            <li><a href="">Contact</a></li>           
+                            <li><Link to="/about">About</Link></li>
+                            <li><Link to="/">Our Team</Link></li>
+                            <li><Link to="/">Careers</Link></li>
+                            <li><Link to="/">Contact</Link></li>           
                         </ul>
                     </div>
                 </div>
