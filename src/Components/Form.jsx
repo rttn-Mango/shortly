@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 
 export default function Form({setData}){
     const [input, setInput] = useState("");
@@ -12,29 +12,27 @@ export default function Form({setData}){
     }
 
     const setUrl = link => setLongLink(link)
+    
 
-    //Fetch request to t.ly api
-    const sendData = useCallback( async () => {
+    useEffect(() => {
         if(longLink !== ''){
-            const response = await fetch(new URL(`https://t.ly/api/v1/link/shorten`), {
-                method: 'POST',
-                headers: {
-                    'Authorization': `Bearer ${import.meta.env.VITE_API_KEY}`,
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: JSON.stringify({"long_url": longLink})
-            })
-
-            if(!response.ok) throw new Error(`Request failed.`)
-
-            const data = await response.json()
-            setData(data);
+            const fetchData = async () => {
+                const response = await fetch(new URL(`https://t.ly/api/v1/link/shorten`), {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${import.meta.env.VITE_API_KEY}`,
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({"long_url": longLink})
+                })
+                
+                const data = await response.json()
+                setData(data);
+            }
+            fetchData()
         }
-    },[longLink]);
-
-
-    useEffect(() => {sendData()},[sendData])
+    },[longLink])
 
     return(
         <form onSubmit={handleSubmit}>
