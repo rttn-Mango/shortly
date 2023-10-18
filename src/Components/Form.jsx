@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 export default function Form({setData}){
     const [input, setInput] = useState("");
@@ -13,26 +13,32 @@ export default function Form({setData}){
 
     const setUrl = link => setLongLink(link)
     
-
-    useEffect(() => {
-        if(longLink !== ''){
-            const fetchData = async () => {
-                const response = await fetch(new URL(`https://t.ly/api/v1/link/shorten`), {
+    //Fetch request to t.ly
+    const fetchData = useCallback( async () => {
+        try{
+            if(longLink !== ''){
+                const url = new URL(`https://t.ly/api/v1/link/shorten`);
+                const response = await fetch(url, {
                     method: 'POST',
                     headers: {
-                        'Authorization': `Bearer ${import.meta.env.VITE_API_KEY}`,
+                        'Authorization': `Bearer W8GSCRwQ2DTTBK1TcS3OAQWaz7rJaSMNh6Hm9xkQYzuSfk8xNR7TlDrEYc2x`,
                         'Content-Type': 'application/json',
                         'Accept': 'application/json'
                     },
                     body: JSON.stringify({"long_url": longLink})
                 })
+
+                if(!response.ok) throw new Error(`Request Failed.`)
                 
                 const data = await response.json()
                 setData(data);
             }
-            fetchData()
+        }catch (e) {
+            throw new Error(`Something went wrong. ${e}`)
         }
-    },[longLink])
+    },[longLink]);
+
+    useEffect(() => {fetchData()},[fetchData])
 
     return(
         <form onSubmit={handleSubmit}>
