@@ -29,6 +29,7 @@ export default function MiddleContents(){
 
     //Function to set data from the fetch request to state variable
     const setData = useCallback((data) => {
+        setCopyText(false);
         setShortLink(() => {
             let tempLink = {...shortLink}
             tempLink.originalLink = data.long_url;
