@@ -15,9 +15,8 @@ export default function Form({setData}){
 
     //Fetch request to t.ly api
     const sendData = useCallback( async () => {
-        try{
-            if(longLink !== ''){
-                const response = await fetch(new URL(`https://t.ly/api/v1/link/shorten`), {
+        if(longLink !== ''){
+            const response = await fetch(new URL(`https://t.ly/api/v1/link/shorten`), {
                 method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${import.meta.env.VITE_API_KEY}`,
@@ -27,13 +26,10 @@ export default function Form({setData}){
                 body: JSON.stringify({"long_url": longLink})
             })
 
-            if(!response.ok) throw new Error(`Request Failed`)
+            if(!response.ok) throw new Error(`Request failed.`)
 
             const data = await response.json()
             setData(data);
-            }
-        }catch(e){ 
-            throw new Error(`Something went wrong. ${e}`)
         }
     },[longLink]);
 
