@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types'
 import { useState, useEffect, useCallback } from "react";
-import axios from 'axios';
 
 export default function Form({setData}){
     const [input, setInput] = useState("");
@@ -14,17 +13,28 @@ export default function Form({setData}){
 
     const setUrl = link => setLongLink(link)
 
-    //Fetch request to backend
-    const sendData = useCallback(() => {
+    //Fetch request to t.ly api
+    const sendData = useCallback( async () => {
         try{
-            axios({
-                method: 'GET',
-                url: `http://localhost:3000/short`,
-                params: {long_url: longLink},
-            }).then(response => {
-                setData(response.data);
-            }).catch(e => console.error(e))
-        }catch(e){console.log(e);}
+            if(longLink !== ''){
+                const response = await fetch(new URL(`https://t.ly/api/v1/link/shorten`), {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${import.meta.env.VITE_API_KEY}`,
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({"long_url": longLink})
+            })
+
+            if(!response.ok) throw new Error(`Request Failed`)
+
+            const data = await response.json()
+            setData(data);
+            }
+        }catch(e){ 
+            throw new Error(`Something went wrong. ${e}`)
+        }
     },[longLink]);
 
 

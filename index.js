@@ -3,6 +3,7 @@ import axios from 'axios';
 import cors from 'cors';
 import dotenv from 'dotenv';
 
+//Currently not being used because backend doesn't work on vercel free tier hosting
 
 const PORT = 3000;
 const app = express();
