@@ -1,14 +1,34 @@
 import PropTypes from 'prop-types'
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
+import axios from 'axios';
 
-export default function Form({setLongLink}){
+export default function Form({setData}){
     const [input, setInput] = useState("");
+    const [longLink, setLongLink] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        setLongLink(input);
+        setUrl(input);
         setInput("");
     }
+
+    const setUrl = link => setLongLink(link)
+
+    //Fetch request to backend
+    const sendData = useCallback(() => {
+        try{
+            axios({
+                method: 'GET',
+                url: `http://localhost:3000/short`,
+                params: {long_url: longLink},
+            }).then(response => {
+                setData(response.data);
+            }).catch(e => console.error(e))
+        }catch(e){console.log(e);}
+    },[longLink]);
+
+
+    useEffect(() => {sendData()},[sendData])
 
     return(
         <form onSubmit={handleSubmit}>
@@ -28,5 +48,5 @@ export default function Form({setLongLink}){
 }
 
 Form.propTypes = {
-    setLongLink: PropTypes.func
+    setData: PropTypes.func
 }

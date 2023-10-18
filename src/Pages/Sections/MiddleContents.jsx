@@ -1,15 +1,13 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useCallback } from "react";
 import StatCard from "../../Components/StatCard";
 import Form from "../../Components/Form";
 
 export default function MiddleContents(){
-    const [link, setLink] = useState("");
     const [shortLink, setShortLink] = useState({
         originalLink: "",
         shortLink: ''
     })
     const [copyText, setCopyText] = useState(false);
-
     const STAT_CARD_DATA = [
         {
             path: "/icon-brand-recognition.svg",
@@ -28,13 +26,13 @@ export default function MiddleContents(){
         }
     ];
 
-    const setLongLink = (link) => setLink(link);
 
+    //Function to set data from the fetch request to state variable
     const setData = useCallback((data) => {
         setShortLink(() => {
             let tempLink = {...shortLink}
-            tempLink.originalLink = data.result.original_link;
-            tempLink.shortLink = data.result.full_short_link;
+            tempLink.originalLink = data.long_url;
+            tempLink.shortLink = data.short_url;
             return tempLink
         })
     }, [shortLink])
@@ -49,28 +47,11 @@ export default function MiddleContents(){
         });
     }
 
-    useEffect(() => {
-        const fetchData = async () => {
-            if(link !== ''){
-                //api.shrtco.de is currently down so this is not gonna work
-                const response  = await fetch(`https://api.shrtco.de/v2/shorten?url=${link}`);
-                console.log(response);
-                if (response.status !== 200 || response.status !== 201){
-                    throw new Error("Request Failed.")
-                }
-                const data = await response.json();
-                setData(data)
-            }
-        }
-
-        fetchData();
-    }, [link, setData])
-
     return(
         <section className="middle">
 
             <div className="middle__shorten | container">
-                <Form setLongLink={setLongLink}/>
+                <Form setData={setData}/>
                 {
                     shortLink.shortLink !== '' ? 
                     <div className="middle__shorten--link">
