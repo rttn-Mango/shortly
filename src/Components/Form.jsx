@@ -13,24 +13,21 @@ export default function Form({setData}){
 
     const setUrl = link => setLongLink(link)
     
-    //Fetch request to t.ly
+    //Fetch request to bit.ly api
     const fetchData = useCallback( async () => {
         try{
             if(longLink !== ''){
-                const url = new URL(`https://t.ly/api/v1/link/shorten`);
+                const url = new URL(`https://api-ssl.bitly.com/v4/shorten`);
                 const response = await fetch(url, {
                     method: 'POST',
                     headers: {
-                        'Authorization': `Bearer W8GSCRwQ2DTTBK1TcS3OAQWaz7rJaSMNh6Hm9xkQYzuSfk8xNR7TlDrEYc2x`,
+                        'Authorization': `Bearer ${import.meta.env.VITE_API_KEY}`,
                         'Content-Type': 'application/json',
-                        'Accept': 'application/json'
                     },
                     body: JSON.stringify({"long_url": longLink})
-                })
-
-                if(!response.ok) throw new Error(`Request Failed.`)
-                
+                })      
                 const data = await response.json()
+                console.log(data);
                 setData(data);
             }
         }catch (e) {

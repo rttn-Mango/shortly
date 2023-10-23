@@ -33,7 +33,7 @@ export default function MiddleContents(){
         setShortLink(() => {
             let tempLink = {...shortLink}
             tempLink.originalLink = data.long_url;
-            tempLink.shortLink = data.short_url;
+            tempLink.shortLink = data.link;
             return tempLink
         })
     }, [shortLink])
