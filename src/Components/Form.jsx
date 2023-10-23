@@ -21,13 +21,12 @@ export default function Form({setData}){
                 const response = await fetch(url, {
                     method: 'POST',
                     headers: {
-                        'Authorization': `Bearer ${import.meta.env.VITE_API_KEY}`,
+                        'Authorization': `Bearer 964a77227ea41ff7a45948aab14e504aadc66b34`,
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({"long_url": longLink})
                 })      
                 const data = await response.json()
-                console.log(data);
                 setData(data);
             }
         }catch (e) {
