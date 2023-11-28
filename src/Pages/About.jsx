@@ -4,7 +4,7 @@ export default function About(){
             
             <div className="wrapper | container">
                 <h1>Shortly, your trusted partner in simplifying links.</h1>
-                <img className="hero-img" src={"/about-us.svg"} alt="illustration" draggable="false" loading="lazy"/>          
+                <img className="hero-img" src={"/about-us.svg"} alt="illustration" draggable="false" />          
             </div>
 
             <section className="about__mission ">
@@ -15,7 +15,7 @@ export default function About(){
             </section>
 
             <section className="about__team | container">
-                <img src="/who.svg" alt="illustration" draggable="false" loading="lazy"/>
+                <img src="/who.svg" alt="illustration" draggable="false"/>
                 <div className="wrapper">
                     <h2>Who We Are</h2>
                     <p>We are a team of passionate tech enthusiasts with a shared vision of streamlining the online experience. With a wealth of experience in web development and digital marketing, we recognized the need for a user-centric URL shortening solution. Shortly was born out of this desire to offer a service that puts you, the user, at the forefront.</p>                   

@@ -3,11 +3,11 @@ export default function Features(){
         <main className="features">
             <section className="features__heading | container">
                 <h1>Powerful Features to Enhance Your Link Management Experience</h1>
-                <img src="/features-hero.svg" alt="illustration" draggable="false" loading="lazy"/>
+                <img src="/features-hero.svg" alt="illustration" draggable="false" />
             </section>
 
             <section className="features__card | container">
-                <img src="/link.svg" alt="illustration" draggable="false" loading="lazy"/>
+                <img src="/link.svg" alt="illustration" draggable="false" />
                 <div className="features__card--text">
                     <h2>Custom Short URLs</h2>
                     <p>Allow users to create custom short URLs with meaningful keywords or names.</p>
@@ -16,7 +16,7 @@ export default function Features(){
             </section>
             <section className="features__card">
                 <div className="analytics | container">
-                    <img src="/analytics.svg" alt="illustration" draggable="false" loading="lazy"/>
+                    <img src="/analytics.svg" alt="illustration" draggable="false" />
                     <div className="features__card--text">
                         <h2>Link Analytics</h2>
                         <p>Provide detailed analytics for each shortened URL.</p>
@@ -26,7 +26,7 @@ export default function Features(){
                 </div>
             </section>
             <section className="features__card | container">
-                <img src="/date.svg" alt="illustration" draggable="false" loading="lazy"/>                
+                <img src="/date.svg" alt="illustration" draggable="false" />                
                 <div className="features__card--text">
                     <h2>Expiration Dates</h2>
                     <p>Enable users to set expiration dates for their shortened URLs.</p>

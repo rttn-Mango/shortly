@@ -7,7 +7,7 @@ import PropTypes from 'prop-types'
 export default function Signup({showSignupForm, showLoginForm}){
     return(
         <dialog className="login | container" id='modal'>
-            <img src={"/signup.svg"} alt="illustration" draggable="false" loading='lazy'/>
+            <img src={"/signup.svg"} alt="illustration" draggable="false"/>
             <div className='wrapper'>
                 <h2 style={{lineHeight: '1.3'}}>Sign up</h2>
                 <p>Glad to see you stay with us</p>
